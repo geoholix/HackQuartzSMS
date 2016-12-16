@@ -1,0 +1,36 @@
+version '1.0'
+apply plugin: 'java'
+apply plugin: 'com.esri.arcgisruntime.java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://esri.bintray.com/arcgis'
+        }
+        mavenCentral()
+    }
+    dependencies {
+        // arcgis-java gradle plugin
+        classpath 'com.esri.arcgisruntime:gradle-arcgis-java-plugin:1.0.0'
+    }
+}
+dependencies {
+    compile 'com.sparkjava:spark-core:2.2'
+    compile 'com.twilio.sdk:twilio-java-sdk:6.3.0'
+    compile 'com.mashape.unirest:unirest-java:1.4.6'
+
+}
+// required: version of arcgis java sdk
+arcgis.version = '100.0.0'
+
+sourceCompatibility = 1.8
+run {
+    mainClassName = "HelloSpark"
+}
+// the gradle wrapper allows you to run a Gradle task without
+// requiring Gradle to be installed on your system.
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.0'
+}
