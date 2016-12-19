@@ -12,14 +12,14 @@ import static spark.Spark.*;
 
 public class HelloSpark {
 
-    public static final String ACCOUNT_SID = "AC824252bb5f11f9084a43dcbeb0a31219";
-    public static final String AUTH_TOKEN = "c1a60ae3a110a75473087ec7bf460183";
+    public static final String ACCOUNT_SID = "ACCOUNT_SID";
+    public static final String AUTH_TOKEN = "AUTH_TOKEN";
     private static final String HELP_TEXT = "\nPlease try this format\n<Location>; <Resource>";
     private static final int POST_DELAY = 500;
 
     public static void main(String[]args) throws TwilioRestException {
         TwilioRestClient client = new TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN);
-        String ngrokURL = "http://c4a6a0e4.ngrok.io";
+        String ngrokURL = "";
 
         post("/", (req, res) -> {
             String body = req.queryParams("Body");
